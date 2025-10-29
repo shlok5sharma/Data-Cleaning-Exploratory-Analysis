@@ -2,10 +2,6 @@
 
 SELECT * FROM layoffs_staging2;
 
--- 1. remove duplicates
--- 2. Standadize the data 
--- 3. Null values or blank values
--- 4. Reamove Any columns
 
 CREATE TABLE layoffs_staging LIKE layoffs;
 
@@ -47,6 +43,7 @@ FROM layoffs_staging;
 DELETE FROM layoffs_staging2 WHERE row_num > 1;
 
 -- Standardizing data
+
 SELECT company, TRIM(company) FROM layoffs_staging2;
 
 UPDATE layoffs_staging2
